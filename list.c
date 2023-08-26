@@ -35,44 +35,45 @@ List* createList() {
 }
 
 void* firstList(List* list){
-  if (list->head) {
+  if (list->head){
     list->current = list->head;
     return list->head->data;
   }
   return NULL;
 }
 
-void *nextList(List *list) {
-  if (list->current && list->current->next) {
+void* nextList(List* list){
+  if (list->current && list->current->next){
     list->current = list->current->next;
     return list->current->data;
   }
   return NULL;
 }
 
-void *lastList(List *list) {
-    if (list->tail) {
+void* lastList(List* list){
+    if (list->tail){
         list->current = list->tail;
         return list->tail->data;
     }
     return NULL;
 }
 
-void *prevList(List *list) {
-    if (list->current && list->current->prev) {
+void* prevList(List* list){
+    if (list->current && list->current->prev){
         list->current = list->current->prev;
         return list->current->data;
     }
     return NULL;
 }
 
-void pushFront(List *list, void *data){
+void pushFront(List* list, void* data){
     Node *newNode = createNode(data);
-    if (newNode) {
+    if (newNode){
         newNode->next = list->head;
-        if (list->head) {
+        if (list->head){
             list->head->prev = newNode;
-        } else {
+        }
+        else{
             list->tail = newNode;
         }
         list->head = newNode;
@@ -84,11 +85,8 @@ void pushCurrent(List* list, void* data){
     if (list == NULL) {
         return;
     }
-    Node * newNode = (Node *)malloc(sizeof(Node));
-    if (newNode == NULL){
-        return;
-    }
-    newNode->data = data;
+    Node* newNode = Node* createNode(data);
+
     if (list->current == NULL){
         newNode->next = NULL;
         newNode->prev = NULL;

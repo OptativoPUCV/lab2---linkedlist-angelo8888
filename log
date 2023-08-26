@@ -225,3 +225,13 @@ Sat 26 Aug 2023 03:36:08 AM UTC:
  tests:  12|0
 total_score: 70/70
 6f217df
+Sat 26 Aug 2023 03:46:23 AM UTC: 
+ list.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘pushCurrent’:
+list.c:88:21: error: expected expression before ‘Node’
+   88 |     Node* newNode = Node* createNode(data);
+      |                     ^~~~
+Compilation failed
+7ae0d9c
