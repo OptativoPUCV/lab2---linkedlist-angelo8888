@@ -95,7 +95,6 @@ void pushCurrent(List *list, void *data) {
             }
             list->current->next = newNode;
         } else {
-            // If current is NULL, add the new node at the beginning
             newNode->next = list->head;
             if (list->head) {
                 list->head->prev = newNode;
