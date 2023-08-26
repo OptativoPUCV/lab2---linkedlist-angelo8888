@@ -235,3 +235,9 @@ list.c:88:21: error: expected expression before ‘Node’
       |                     ^~~~
 Compilation failed
 7ae0d9c
+Sat 26 Aug 2023 03:46:43 AM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  12|0
+total_score: 70/70
+f87a6e9
