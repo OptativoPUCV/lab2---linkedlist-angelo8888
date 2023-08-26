@@ -94,3 +94,111 @@ Sat 26 Aug 2023 03:33:21 AM UTC:
  tests:  12|0
 total_score: 70/70
 e7bd7aa
+Sat 26 Aug 2023 03:33:39 AM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+list.c:9:3: error: unknown type name ‘Node’
+    9 |   Node *next;
+      |   ^~~~
+list.c:10:3: error: unknown type name ‘Node’
+   10 |   Node *prev;
+      |   ^~~~
+list.c: In function ‘nextList’:
+list.c:47:19: error: assignment to ‘Node *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+   47 |     list->current = list->current->next;
+      |                   ^
+list.c: In function ‘prevList’:
+list.c:63:23: error: assignment to ‘Node *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+   63 |         list->current = list->current->prev;
+      |                       ^
+list.c: In function ‘pushFront’:
+list.c:72:23: error: assignment to ‘int *’ from incompatible pointer type ‘Node *’ [-Werror=incompatible-pointer-types]
+   72 |         newNode->next = list->head;
+      |                       ^
+list.c:74:30: error: assignment to ‘int *’ from incompatible pointer type ‘Node *’ [-Werror=incompatible-pointer-types]
+   74 |             list->head->prev = newNode;
+      |                              ^
+list.c: In function ‘pushCurrent’:
+list.c:101:23: error: assignment to ‘int *’ from incompatible pointer type ‘Node *’ [-Werror=incompatible-pointer-types]
+  101 |         newNode->prev = list->current;
+      |                       ^
+list.c:104:30: error: request for member ‘prev’ in something not a structure or union
+  104 |           list->current->next->prev = newNode;
+      |                              ^~
+list.c:110:29: error: assignment to ‘int *’ from incompatible pointer type ‘Node *’ [-Werror=incompatible-pointer-types]
+  110 |         list->current->next = newNode;
+      |                             ^
+list.c: In function ‘popCurrent’:
+list.c:123:22: error: request for member ‘next’ in something not a structure or union
+  123 |         current->prev->next = current->next;
+      |                      ^~
+list.c:126:20: error: assignment to ‘Node *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+  126 |         list->head = current->next;
+      |                    ^
+list.c:130:22: error: request for member ‘prev’ in something not a structure or union
+  130 |         current->next->prev = current->prev;
+      |                      ^~
+list.c:133:20: error: assignment to ‘Node *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+  133 |         list->tail = current->prev;
+      |                    ^
+list.c:135:19: error: assignment to ‘Node *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+  135 |     list->current = current->next;
+      |                   ^
+test.c: In function ‘initialize_exList’:
+test.c:65:23: error: assignment to ‘int *’ from incompatible pointer type ‘Node *’ [-Werror=incompatible-pointer-types]
+   65 |          L->tail->next=n;
+      |                       ^
+test.c:66:17: error: assignment to ‘int *’ from incompatible pointer type ‘Node *’ [-Werror=incompatible-pointer-types]
+   66 |          n->prev=L->tail;
+      |                 ^
+test.c: In function ‘test_first_next’:
+test.c:143:19: error: comparison of distinct pointer types lacks a cast [-Werror]
+  143 |     if(L->current != L->head->next){
+      |                   ^~
+test.c: In function ‘test_last_prev’:
+test.c:205:19: error: comparison of distinct pointer types lacks a cast [-Werror]
+  205 |     if(L->current != L->tail->prev){
+      |                   ^~
+test.c: In function ‘test_pushfront’:
+test.c:284:22: error: comparison of distinct pointer types lacks a cast [-Werror]
+  284 |     if(L->head->next != aux){
+      |                      ^~
+test.c:285:77: error: request for member ‘data’ in something not a structure or union
+  285 |         sprintf(msg,"head->next->data=%d (debe ser 0)",*(int*) L->head->next->data);
+      |                                                                             ^~
+test.c: In function ‘test_pushcurrent’:
+test.c:316:21: error: request for member ‘data’ in something not a structure or union
+  316 |     if(L->head->next->data != j){
+      |                     ^~
+test.c:322:21: error: request for member ‘prev’ in something not a structure or union
+  322 |     if(L->head->next->prev ==NULL){
+      |                     ^~
+test.c:340:38: error: comparison of distinct pointer types lacks a cast [-Werror]
+  340 |     if(aux->next == NULL || aux->next!=L->tail){
+      |                                      ^~
+test.c:345:46: error: comparison of distinct pointer types lacks a cast [-Werror]
+  345 |     if(L->tail->prev == NULL || L->tail->prev!=aux){
+      |                                              ^~
+test.c: In function ‘test_popcurrent’:
+test.c:386:15: error: assignment to ‘Node *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+  386 |     L->current=L->head->next;
+      |               ^
+test.c:387:28: error: request for member ‘next’ in something not a structure or union
+  387 |     Node* aux=L->head->next->next;
+      |                            ^~
+test.c:394:46: error: comparison of distinct pointer types lacks a cast [-Werror]
+  394 |     if(L->head->next == NULL || L->head->next!=aux){
+      |                                              ^~
+test.c:399:18: error: comparison of distinct pointer types lacks a cast [-Werror]
+  399 |     if(aux->prev != L->head){
+      |                  ^~
+test.c:411:8: error: assignment to ‘Node *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+  411 |     aux=L->tail->prev;
+      |        ^
+test.c:415:8: error: assignment to ‘Node *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+  415 |     aux=L->tail->prev;
+      |        ^
+cc1: all warnings being treated as errors
+Compilation failed
+f6e80a2

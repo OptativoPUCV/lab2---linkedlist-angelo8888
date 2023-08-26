@@ -3,19 +3,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node Node;
 
 struct Node {
   void *data;
   Node *next;
   Node *prev;
 };
+typedef struct Node Node;
 struct List {
   Node *head;
   Node *tail;
   Node *current;
 };
-
 typedef List List;
 
 Node *createNode(void *data) {
