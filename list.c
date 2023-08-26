@@ -9,7 +9,7 @@ struct Node {
   void *data;
   Node *next;
   Node *prev;
-}
+};
 struct List {
   Node *head;
   Node *tail;

@@ -88,3 +88,9 @@ list.c:13:1: error: expected ‘;’, identifier or ‘(’ before ‘struct’
       | ^~~~~~
 Compilation failed
 a47000f
+Sat 26 Aug 2023 03:33:21 AM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  12|0
+total_score: 70/70
+e7bd7aa
